@@ -2,8 +2,19 @@ const express = require("express")
 const dotenv = require("dotenv").config()
 const {errorHandler} = require("./middlewares/errorMiddleware")
 const config = require("./config/connection");
+const session = require("express-session")
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const { sessionMiddleware, wrap, corsConfig } = require("./controllers/session")
+
 
 const app = express()
+
+app.use(cors({
+	origin: ["http://localhost:3000"],
+	methods: ["GET", "POST", "DELETE", "PUT"],
+	credentials: true
+}))
 
 // DB CONNECTION
 let conn = config.connection;

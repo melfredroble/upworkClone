@@ -49,6 +49,10 @@ a {
   font-size: 11px !important;
 }
 
+.fs-12 {
+  font-size: 12px !important;
+}
+
 .active-dropdown {
   background-color: #F2F7F2 !important;
 }

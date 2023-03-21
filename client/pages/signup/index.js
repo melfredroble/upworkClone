@@ -44,7 +44,7 @@ const Signup = () => {
                 <Col xs={5}>
                     <div class="radioBtnBox d-flex flex-column align-items-center justify-content-center">
                         <form onSubmit={handleSignUp} className="d-flex flex-column align-items-center justify-content-center">
-                            <h2 class="title">Join as a client or freelancer</h2>
+                            <h2 className="title">Join as a client or freelancer</h2>
                             <div className='d-flex justify-content-between mt-4'>
                                 <label 
                                 class="radioBox basic-radioBox" 

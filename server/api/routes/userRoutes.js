@@ -1,8 +1,13 @@
 const express = require('express')
 const {addUser} = require('../controllers/userControllers')
 const router = express.Router()
+// const bodyParser = require("body-parser");
+// router.use(bodyParser.urlencoded({ extended: true }));
+// router.use(bodyParser.json());
 
-router.get('/', )
+router.get('/', (req, res)=>{
+    res.json("Hello")
+})
 
 router.post('/addUser', addUser)
 

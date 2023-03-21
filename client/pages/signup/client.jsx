@@ -2,7 +2,9 @@ import React from 'react'
 
 const client = () => {
   return (
-    <div>client</div>
+    <div>
+      <h1>client</h1>
+    </div>
   )
 }
 
