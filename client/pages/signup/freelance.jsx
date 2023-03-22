@@ -10,6 +10,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import Select from 'react-select'
 import { getCountriesData } from '../api/getCountriesData';
+import { useRouter } from 'next/router';
 
 
 export async function getStaticProps() {
@@ -26,8 +27,9 @@ const freelance = ({ countriesData, currentCountry }) => {
     // {countriesData.map(country => (
     //       <li key={country.alpha3Code}>{country.name}</li>
     //     ))}
-    const [countries, setCountries] = useState([]);
-    const [selectedOption, setSelectedOption] = useState(null);
+    // const [countries, setCountries] = useState([]);
+    // const [selectedOption, setSelectedOption] = useState(null);
+    const router = useRouter()
 
     const countryOptions = countriesData.map(country => ({
         value: country.name,
@@ -48,17 +50,23 @@ const freelance = ({ countriesData, currentCountry }) => {
     // setSelectedOption(selected);
     // };
 
+    const handleSignUp = (e) =>{
+        e.preventDefault()
+
+        router.push('/create-profile/welcome')
+    }
+
   return (
     <>
         <Navbar bg="white" expand="lg" fixed='top' className='pt-2 pb-3 px-3 '>
-            <Container fluid >
-                <Navbar.Brand href="/">
+            <Container fluid className='pt-3'>
+                <Link href="/">
                 <svg width={82}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 28" role="img" aria-hidden="true"><path fill="#14a800" d="M28.18,19.06A6.54,6.54,0,0,1,23,16c.67-5.34,2.62-7,5.2-7s4.54,2,4.54,5-2,5-4.54,5m0-13.34a7.77,7.77,0,0,0-7.9,6.08,26,26,0,0,1-1.93-5.62H12v7.9c0,2.87-1.3,5-3.85,5s-4-2.12-4-5l0-7.9H.49v7.9A8.61,8.61,0,0,0,2.6,20a7.27,7.27,0,0,0,5.54,2.35c4.41,0,7.5-3.39,7.5-8.24V8.77a25.87,25.87,0,0,0,3.66,8.05L17.34,28h3.72l1.29-7.92a11,11,0,0,0,1.36,1,8.32,8.32,0,0,0,4.14,1.28h.34A8.1,8.1,0,0,0,36.37,14a8.12,8.12,0,0,0-8.19-8.31"></path><path fill="#14a800" d="M80.8,7.86V6.18H77.2V21.81h3.65V15.69c0-3.77.34-6.48,5.4-6.13V6c-2.36-.18-4.2.31-5.45,1.87"></path><polygon fill="#14a800" points="55.51 6.17 52.87 17.11 50.05 6.17 45.41 6.17 42.59 17.11 39.95 6.17 36.26 6.17 40.31 21.82 44.69 21.82 47.73 10.71 50.74 21.82 55.12 21.82 59.4 6.17 55.51 6.17"></polygon><path fill="#14a800" d="M67.42,19.07c-2.59,0-4.53-2.05-4.53-5s2-5,4.53-5S72,11,72,14s-2,5-4.54,5m0-13.35A8.1,8.1,0,0,0,59.25,14,8.18,8.18,0,1,0,75.6,14a8.11,8.11,0,0,0-8.18-8.31"></path><path fill="#14a800" d="M91.47,14.13h.84l5.09,7.69h4.11l-5.85-8.53a7.66,7.66,0,0,0,4.74-7.11H96.77c0,3.37-2.66,4.65-5.3,4.65V0H87.82V21.82h3.64Z"></path>
                 </svg>
-                </Navbar.Brand>
-                <Navbar.Brand href="/signup/client" className='fs-16'>
+                </Link>
+                <Link href="/signup/client" className='fs-16 text-decoration-none text-dark'>
                     Here to hire talent? <span className='text-green'>Join as a Client</span>
-                </Navbar.Brand>
+                </Link>
             </Container>
         </Navbar>
 
@@ -90,24 +98,24 @@ const freelance = ({ countriesData, currentCountry }) => {
 
                                 <p className="btn-separator my-4"><span className='mx-5'>or</span></p>
 
-                                <Form>
+                                <Form onSubmit={handleSignUp}>
                                     <div className="d-flex justify-content-between">
                                         <div className="w-100">
-                                            <input type="text" placeholder='First name' className='form-control' />
+                                            <input type="text" required placeholder='First name' className='form-control' />
                                         </div>
                                         <div className="w-100 ms-4">
-                                            <input type="text" placeholder='Last name' className='form-control'/>
+                                            <input type="text" required placeholder='Last name' className='form-control'/>
                                         </div>
                                     </div>
                                     <div className="my-3">
-                                        <input type="text" placeholder='Email' className='form-control'/>
+                                        <input type="text" required placeholder='Email' className='form-control'/>
                                     </div>
                                     <div className="">
-                                        <input type="text" placeholder='Password (8 or more characters)' className='form-control'/>
+                                        <input type="password" required placeholder='Password (8 or more characters)' className='form-control'/>
                                     </div>
 
                                     <div className="my-3">
-                                        <Select className='border-0' placeholder={'Philippines'} options={countryOptions} />
+                                        <Select className='border-0'  placeholder={'Philippines'} options={countryOptions} />
                                     </div>
 
                                     <div className='d-flex align-items-center'>
@@ -125,11 +133,11 @@ const freelance = ({ countriesData, currentCountry }) => {
                                         </span>
                                     </div>
                                     <div className='mt-3'>
-                                        <Button  className="mb-3 bg-green border-0 py-2 shadow-none w-100 rounded-pill mt-1 fw-bold-5">
+                                        <Button type='submit'  className="mb-3 bg-green border-0 py-2 shadow-none w-100 rounded-pill mt-1 fw-bold-5">
                                             Create my account
                                         </Button>
                                         <div className="text-center">
-                                            <Link href="/login" className='text-decoration-none fs-14 text-dark '>
+                                            <Link href='/login' className='text-decoration-none fs-14 text-dark '>
                                                 Already have an account? <span className='text-green'>Log In</span>
                                             </Link>
                                         </div>

@@ -84,7 +84,7 @@ const Signup = () => {
                             </Button>}
                         </form>
                         <div className='fs-14 mt-4'>
-                            <span>Already have an account?</span>
+                            <span>Already have an account? </span>
                             <Link href='/login' className='text-decoration-none text-success fw-bold-5'>
                                 Log In
                             </Link>

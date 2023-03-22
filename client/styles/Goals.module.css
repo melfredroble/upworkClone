@@ -1,0 +1,49 @@
+
+  
+  .radioBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 30px;
+    width: 340px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #e1e2e7;
+    border-radius: 10px;
+    -webkit-transition: -webkit-box-shadow 0.4s;
+    transition: -webkit-box-shadow 0.4s;
+    -o-transition: box-shadow 0.4s;
+    transition: box-shadow 0.4s;
+    transition: box-shadow 0.4s, -webkit-box-shadow 0.4s;
+    position: relative;
+  }
+
+
+.radioBox img {
+    margin-right: 30px;
+    height: 72px;
+  }
+  
+.radioBox:hover {
+    -webkit-box-shadow: 0px 3px 5px 0px #e8e8e8;
+    box-shadow: 0px 3px 5px 0px #e8e8e8;
+  }
+
+
+.radioBtnBoxContainer .radioBoxContent input[type="radio"]:checked + .radioBox {
+    border: 2px solid #14A800;
+    background: #eaf1fe;
+    -webkit-transition: ease-in 0.3s;
+    -o-transition: ease-in 0.3s;
+    transition: ease-in 0.3s;
+  }
+
+.pageRange {
+    background-color: #14A800;
+    padding: 2px 0 2px 0;
+}
+
+.pageRangeGray {
+    background-color: #e4ebe4;
+    padding: 2px 0 2px 0;
+}

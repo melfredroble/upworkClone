@@ -266,7 +266,7 @@ a {
 }
 
 .bg-gray {
-  background-color: #f2f7f2 !important;
+  background-color: #e4ebe4 !important;
 }
 
 .category-tile {
@@ -373,6 +373,8 @@ a {
   box-shadow: 0px 0px 0px 2px #14A800;
 }
 
+
+
 .radioBtnBox .radioBox input[type="radio"]:checked + .radioBox-content {
   border: 2px solid #14A800;
   background: #eaf1fe;
@@ -407,4 +409,180 @@ a {
 
 .cursor-disable {
   cursor: not-allowed !important;
+}
+
+.air3-presence-container {
+  position: relative;
+  display: inline-grid;
+}
+
+.air3-presence-container .air3-avatar, .air3-presence-container .air3-presence-indicator {
+  grid-area: 1/-1;
+}
+.air3-presence-indicator-online {
+  --presence-bg: var(--presence-bg-success);
+}
+.air3-presence-indicator {
+  --presence-size: 10px;
+  --presence-bg-success: var(--bg-success);
+  --presence-bg-away: var(--bg-warning);
+  --presence-bg-offline: var(--bg-offline);
+  display: inline-flex;
+  width: var(--presence-size);
+  height: var(--presence-size);
+  margin-left: var(--ws-2x);
+  background-color: var(--presence-bg);
+  background-color: var(--hc-bg-selected,var(--presence-bg));
+  border-radius: 50%;
+}
+
+.air3-presence-container [class^=air3-badge-tier] {
+  position: absolute;
+  right: var(--ws-2x);
+  bottom: var(--ws-3x);
+}
+
+.air3-badge-tier-sm {
+  width: 28px;
+  height: 16px;
+  position: absolute;
+  top: 98px;
+  left: 90px;
+}
+
+.air3-badge-tier, .air3-badge-tier-sm {
+  background: #debe1a;
+  color: #fff;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  border-radius: 2px / 4px;
+}
+
+.air3-badge-tier-sm:before, .air3-badge-tier:before {
+  transform: rotate(60deg);
+}
+
+.air3-badge-tier-sm:after, .air3-badge-tier-sm:before, .air3-badge-tier:after, .air3-badge-tier:before {
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+}
+
+.air3-badge-tier-sm .air3-icon {
+  font-size: 16px;
+}
+
+.air3-badge-tier-sm .air3-icon, .air3-badge-tier .air3-icon {
+  z-index: 1;
+  position: relative;
+}
+
+
+
+
+.air3-icon {
+  display: inline-flex;
+  width: 20px;
+  height: 18px;
+
+  
+}
+
+.air3-icon>svg {
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 100%!important;
+  height: 100%!important;
+  display: block;
+  color: #fff !important;
+}
+
+
+.air3-badge-tier-sm:after, .air3-badge-tier:after {
+  transform: rotate(-60deg);
+}
+.air3-badge-tier-sm:after, .air3-badge-tier-sm:before, .air3-badge-tier:after, .air3-badge-tier:before {
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: "";
+}
+
+
+.air3-presence-container .air3-avatar, .air3-presence-container .air3-presence-indicator {
+  grid-area: 1/-1;
+}
+
+.air3-avatar-128 {
+  width: 128px;
+}
+
+.air3-avatar {
+  --avatar-size: 128px;
+  --avatar-bg: #9aaa97;
+  --avatar-text: #fff;
+  --avatar-font-size: 14px;
+  --avatar-radius: 50%;
+  --avatart-company-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-size: var(--avatar-font-size);
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  max-width: var(--avatar-size);
+  max-height: var(--avatar-size);
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-color: var(--avatar-bg);
+  color: var(--avatar-text);
+  vertical-align: middle;
+  border: 0;
+  border: var(--hc-border,0);
+  border-radius: var(--avatar-radius);
+}
+
+.rounded-10 {
+  border-radius: 20px !important;
+}
+
+.rounded-100 {
+  border-radius: 100% !important;
+}
+
+.d-inline-flex{
+  display: inline-flex;
+}
+
+.text-gray {
+  color: #5e6d55 !important;
+}
+
+.fs-17 {
+  font-size: 17px !important;
+}
+
+
+.w-20 {
+  width: 20% !important;
+}
+
+
+.w-15 {
+  width: 15% !important;
+}
+
+.w-18 {
+  width: 18% !important;
 }
