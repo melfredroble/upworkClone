@@ -21,7 +21,7 @@ const Signup = () => {
         if(freelance === true){
             router.push("/signup/freelance")
         } 
-
+        
         if(client === true) {
             router.push("/signup/client")
         }
