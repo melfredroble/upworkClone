@@ -7,7 +7,7 @@ let conn = config.connection;
 // SET SESSION STORE
 const sessionStore = new MySQLStore(
     {
-        expiration: 1000 * 60 * 60 * 24,
+        expiration: 1000 * 60 * 60 * 24 * 30,
         createDatabaseTable: true,
         schema: {
         tableName: "sessiontbl",
@@ -37,7 +37,6 @@ const sessionMiddleware = session({
 
 const wrap = (sessionMiddleware) => (socket, next) =>
     sessionMiddleware(socket.request, {}, next);
-
     const corsConfig = {
     origin: "http://localhost:3000",
     methods: ["get", "post", "put", "delete"],

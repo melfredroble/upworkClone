@@ -75,7 +75,7 @@ const Signup = () => {
                                     </div>
                                 </label>
                             </div>
-                            {!client && !freelance ? <Button className='shadow-none cursor-disable bg-green-100 userTypeBtn rounded-pillpx-5 mt-5 py-2'>
+                            {!client && !freelance ? <Button className='shadow-none cursor-disable bg-green-100 userTypeBtn rounded-pill px-5 mt-5 py-2'>
                                 Create Account
                             </Button> : <Button type='submit' className='shadow-none bg-green userTypeBtn rounded-pill px-5 mt-5 py-2'>
                                 {client && "Join as a Client"}

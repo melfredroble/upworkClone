@@ -18,6 +18,10 @@ a {
   background-color: #108A00 !important;
 }
 
+.border-green {
+  border: 2px solid #108A00 !important;
+}
+
 .bg-green-500:hover, .model-name:hover{
   background-color: #fff !important;
   color: #108A00 !important;
@@ -585,4 +589,166 @@ a {
 
 .w-18 {
   width: 18% !important;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-42 {
+  width: 42% !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
+
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+
+.w-56 {
+  width: 56% !important;
+}
+
+.w-135 {
+  width: 135% !important;
+}
+
+.w-170 {
+  width: 170% !important;
+}
+
+.w-240 {
+  width: 240% !important;
+}
+
+.w-400 {
+  width: 400% !important;
+}
+
+.w-600 {
+  width: 600% !important;
+}
+
+
+.w-10 {
+  width: 9% !important;
+}
+
+
+.bg-gray-80 {
+  background-color: #e4ebe4 !important;
+}
+
+.text-gray-60 {
+  color: #beccbe !important;
+}
+
+.bg-gray-100 {
+  background-color: #f7faf7 !important;
+}
+
+.btn-focus-none:focus {
+  border: none !important;
+}
+
+.fs-32 {
+  font-size: 32px !important;
+}
+
+.w-350 {
+  width: 350px !important;
+}
+
+.air3-avatar-88 {
+  width: 80px ;
+  font-size: 32px;
+}
+
+/* 
+.air3-avatar {
+  --avatar-size: 32px;
+  --avatar-bg: #9aaa97;
+  --avatar-text: #fff;
+  --avatar-font-size: 14px;
+  --avatar-radius: 50%;
+  --avatar-company-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-size: var(--avatar-font-size);
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  max-width: var(--avatar-size);
+  max-height: var(--avatar-size);
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-color: var(--avatar-bg);
+  color: var(--avatar-text);
+  vertical-align: middle;
+  border: 0;
+  border: var(--hc-border,0);
+  border-radius: var(--avatar-radius);
+} */
+
+.air3-image-crop-avatars:not(:empty), .air3-image-crop-preview-title {
+  margin-bottom: 24px;
+}
+
+@media (min-width: 700px){
+  .air3-image-crop-avatars .air3-avatar {
+    position: relative;
+    background-color: #f7faf7;
+  }
+}
+
+.air3-avatar-60 {
+  width: 60px ;
+  font-size: 20px ;
+}
+
+.air3-avatar-40 {
+  width: 40px ;
+  font-size: 20px ;
+}
+
+.air3-avatar-32 {
+  width: 32px;
+  height: 32px;
+  font-size: 20px ;
+}
+
+.air3-avatar-40 {
+  --avatar-size: 40px;
+  --avatar-font-size: var(--font-size-base);
+}
+.air3-avatar-88 {
+  --avatar-size: 88px;
+  --avatar-font-size: 32px;
+}
+
+.air3-avatar-60 {
+  --avatar-size: 60px;
+  --avatar-font-size: 20px;
+}
+
+.border-dashed {
+  border: 2px dashed #d5e0d5 !important;
+}
+
+button:focus {
+  border: none !important;
 }

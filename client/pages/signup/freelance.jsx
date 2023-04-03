@@ -9,26 +9,34 @@ import Form from 'react-bootstrap/Form'
 import Link from 'next/link'
 import axios from 'axios'
 import Select from 'react-select'
-import { getCountriesData } from '../api/getCountriesData';
+// import { getCountriesData } from '../api/getCountriesData';
 import { useRouter } from 'next/router';
+import ClipLoader from "react-spinners/ClipLoader";
 
-
-export async function getStaticProps() {
-    const countriesData = await getCountriesData();
+export async function getCountryList() {
+  const response = await axios.get('http://localhost:3000/api/getCountriesData')
+  const data = response.data
+  return data
+}
+  
+export async function getServerSideProps() {
+    const countriesData = await getCountryList();
     return {
         props: {
-        countriesData
+            countriesData
         },
     };
 }
 
-const freelance = ({ countriesData, currentCountry }) => {
+const freelance = ({ countriesData }) => {
 
-    // {countriesData.map(country => (
-    //       <li key={country.alpha3Code}>{country.name}</li>
-    //     ))}
-    // const [countries, setCountries] = useState([]);
-    // const [selectedOption, setSelectedOption] = useState(null);
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [country, setCountry] = useState('Philippines')
+    const [isLoading, setIsLoading] = useState(false);
+
     const router = useRouter()
 
     const countryOptions = countriesData.map(country => ({
@@ -36,25 +44,40 @@ const freelance = ({ countriesData, currentCountry }) => {
         label: country.name
     }));
 
-    // const currentCountryOption = {
-    //     value: currentCountry,
-    //     label: currentCountry,
-    // };
-    
 
     // const defaultOptions = [currentCountryOption, ...countryOptions];
 
     // const [selectedOption, setSelectedOption] = useState(null);
 
-    // const handleChange = (selected) => {
-    // setSelectedOption(selected);
-    // };
+    const handleChange = (country) => {
+        setCountry(country);
+    };
 
-    const handleSignUp = (e) =>{
+    const handleSignUp = async (e) =>{
         e.preventDefault()
 
-        router.push('/create-profile/welcome')
+        setIsLoading(true)
+        try{
+            const response = await axios.post('http://localhost:5000/user/addUser', {
+                firstName,
+                lastName,
+                email,
+                password,
+                country
+            })
+
+            if(response){
+                console.log(response)
+                router.push('/create-profile/welcome')
+            }
+            
+        } catch(err){
+            console.log(err)
+        } finally {
+            setIsLoading(false)
+        }
     }
+
 
   return (
     <>
@@ -101,23 +124,23 @@ const freelance = ({ countriesData, currentCountry }) => {
                                 <Form onSubmit={handleSignUp}>
                                     <div className="d-flex justify-content-between">
                                         <div className="w-100">
-                                            <input type="text" required placeholder='First name' className='form-control' />
+                                            <input type="text" onChange={(e)=>setFirstName(e.target.value)} required placeholder='First name' className='form-control' />
                                         </div>
                                         <div className="w-100 ms-4">
-                                            <input type="text" required placeholder='Last name' className='form-control'/>
+                                            <input type="text" onChange={(e)=>setLastName(e.target.value)} required placeholder='Last name' className='form-control'/>
                                         </div>
                                     </div>
                                     <div className="my-3">
-                                        <input type="text" required placeholder='Email' className='form-control'/>
+                                        <input type="email" onChange={(e)=>setEmail(e.target.value)} required placeholder='Email' className='form-control'/>
                                     </div>
                                     <div className="">
-                                        <input type="password" required placeholder='Password (8 or more characters)' className='form-control'/>
+                                        <input type="password" onChange={(e)=>setPassword(e.target.value)} required placeholder='Password (8 or more characters)' className='form-control'/>
                                     </div>
 
                                     <div className="my-3">
-                                        <Select className='border-0'  placeholder={'Philippines'} options={countryOptions} />
+                                        <Select className='border-0' value={country} onChange={handleChange}  placeholder='Philippines' options={countryOptions} />
                                     </div>
-
+                                    {/* placeholder={country ? country.label : 'Select an option'} */}
                                     <div className='d-flex align-items-center'>
                                         <div >
                                             <input id="checkbox-promo" type="checkbox" value="true" />
@@ -127,14 +150,18 @@ const freelance = ({ countriesData, currentCountry }) => {
                                     </div>
                                     <div className='d-flex mt-2'>
                                         <div >
-                                            <input id="checkbox-promo" type="checkbox" value="true" />
+                                            <input id="checkbox" type="checkbox" value="true" />
                                         </div>
                                         <span className='fs-12 ms-2'>Yes, I understand and agree to the Upwork Terms of Service , including the <span className='text-green'>User Agreement</span> and <span className='text-green'>Privacy Policy.</span>
                                         </span>
                                     </div>
                                     <div className='mt-3'>
                                         <Button type='submit'  className="mb-3 bg-green border-0 py-2 shadow-none w-100 rounded-pill mt-1 fw-bold-5">
-                                            Create my account
+                                            {!isLoading ? (
+                                            "Create my account"
+                                            ) : (
+                                            <ClipLoader size={16} color="#ffffff" />
+                                            )}
                                         </Button>
                                         <div className="text-center">
                                             <Link href='/login' className='text-decoration-none fs-14 text-dark '>

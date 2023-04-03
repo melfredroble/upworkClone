@@ -1,0 +1,14 @@
+.empModal {
+    width: 45vw;
+    max-width: 50vw;
+}
+
+.pageRange {
+    background-color: #14A800;
+    padding: 2px 0 2px 0;
+}
+
+.pageRangeGray {
+    background-color: #e4ebe4;
+    padding: 2px 0 2px 0;
+}
