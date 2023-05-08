@@ -10,20 +10,35 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { AiOutlineUser, AiOutlineArrowRight } from "react-icons/ai";
 import CreateProfileNav from '@/components/CreateProfileNav';
+import { parseCookies } from 'next-cookies';
+
+export async function getServerSideProps(context) {
+  const cookies = parseCookies(context);
+
+  console.log(cookies);
+
+  return {
+    props: { cookies }
+  };
+}
 
 
 
-export const CardOne = () => {
+export const CardOne = ({cookies}) => {
+
+
+  console.log(cookies)
+
   return (
     <Card className='w-100 rounded-10 mx-3'>
         <Card.Header className='bg-white d-flex justify-content-center border-0 rounded-10 pt-5'>
-          <div class="air3-presence-container">
+          <div className="air3-presence-container">
           <span className='bg-green rounded-100' style={{width: '10px', height: '10px'}}></span>
           <picture>
             <source srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" media="(max-width: 699.98px)" /> 
             <img width="128" height="128" loading="lazy" src="https://www.upwork.com/nx/create-profile/nx/create-profile/img/person1.8d03035.png" alt="Sasheen M." class="air3-avatar air3-avatar-128" />
           </picture>
-          <div class="air3-badge-tier-sm ">
+          <div className="air3-badge-tier-sm ">
             <div class="air3-icon sm">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true" viewBox="0 0 24 24" role="img"><path vectorEffect="non-scaling-stroke" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M17.911 18.594c.3 1.096-.897 1.893-1.793 1.295l-4.086-2.69-4.085 2.69c-.897.598-2.092-.299-1.793-1.295L7.25 13.91l-3.787-3.09c-.896-.697-.398-2.092.698-2.191l4.882-.3 1.794-4.583c.398-.996 1.893-.996 2.291 0l1.794 4.584m2.491.3v6.974M21 12.117h-6.975"></path></svg></div>
             </div>
